@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://pldjs2sf3a2w"
+path="res://.godot/imported/legend_of_valor.dialogue-0145b72c9b2f745af043e41aecd9c1a4.tres"
+
+[deps]
+
+source_file="res://dialogues/legend_of_valor.dialogue"
+dest_files=["res://.godot/imported/legend_of_valor.dialogue-0145b72c9b2f745af043e41aecd9c1a4.tres"]
+
+[params]
+
+defaults=true

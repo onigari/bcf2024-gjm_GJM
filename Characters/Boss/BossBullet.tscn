@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://pgbgjqtqm31n"]
+
+[ext_resource type="Texture2D" uid="uid://w8edecpehnwb" path="res://Assets/laser-bolts.png" id="1_lnkot"]
+[ext_resource type="Script" path="res://Characters/Boss/boss_bullet.gd" id="2_tbug6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h3bp0"]
+radius = 2.5342
+height = 16.4723
+
+[node name="BossBullet" type="Area2D" groups=["EnemyBullet"]]
+rotation = -1.5708
+scale = Vector2(1.57841, 1.57841)
+collision_layer = 1073741824
+script = ExtResource("2_tbug6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lnkot")
+region_enabled = true
+region_rect = Rect2(20.0926, 6.91899, 4.90739, 20.9143)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.88032e-06, -1.90065)
+shape = SubResource("CapsuleShape2D_h3bp0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

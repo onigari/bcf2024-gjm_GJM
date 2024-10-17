@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ly0xioho4e3"]
+
+[ext_resource type="Script" path="res://dialogues/dialogue_area_2d.gd" id="1_bfdjo"]
+[ext_resource type="Resource" uid="uid://pldjs2sf3a2w" path="res://dialogues/legend_of_valor.dialogue" id="2_enakt"]
+
+[node name="Interactives" type="Area2D"]
+collision_layer = 524288
+script = ExtResource("1_bfdjo")
+dialogue_resource = ExtResource("2_enakt")
+dialogue_start = ""

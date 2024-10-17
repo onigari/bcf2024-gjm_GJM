@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3on86vj7yxra"]
+
+[ext_resource type="Script" path="res://autoload/sound_manager.gd" id="1_tvuyu"]
+[ext_resource type="AudioStream" uid="uid://cg6yggddk24jl" path="res://Assets/sfx/click-b.ogg" id="2_3dol0"]
+[ext_resource type="AudioStream" uid="uid://clh5cngsbdd15" path="res://Assets/sfx/click-a.ogg" id="3_ik5gt"]
+[ext_resource type="AudioStream" uid="uid://b06wi1aystge1" path="res://Assets/sfx/main_bgm.ogg" id="4_ys4rt"]
+[ext_resource type="AudioStream" uid="uid://bd8n74mrdn8e1" path="res://Assets/sfx/mario_coin.ogg" id="5_cjw1r"]
+[ext_resource type="AudioStream" uid="uid://btbuedje0kqj0" path="res://Assets/sfx/game-over_C_minor.wav" id="6_rflgk"]
+[ext_resource type="AudioStream" uid="uid://b81fbo4mc25ps" path="res://Assets/sfx/jump.wav" id="7_b8ekf"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_tvuyu")
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3dol0")
+bus = &"SFX"
+
+[node name="ResumeSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ik5gt")
+bus = &"SFX"
+
+[node name="MainBgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ys4rt")
+volume_db = -14.054
+bus = &"Music"
+
+[node name="MarioCoin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cjw1r")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rflgk")
+volume_db = -4.0
+bus = &"Music"
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_b8ekf")
+volume_db = -10.0
+bus = &"SFX"

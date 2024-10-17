@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bwu6254l2sy5f"]
+
+[node name="Mobs" type="CharacterBody2D"]

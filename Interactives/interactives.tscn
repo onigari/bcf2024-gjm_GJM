@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3u54q4inxy8o"]
+
+[ext_resource type="Texture2D" uid="uid://dwob04va41kqf" path="res://Assets/Asset rebuild/Chest/ChestClosed.png" id="1_tfre2"]
+[ext_resource type="Script" path="res://Interactives/interactives.gd" id="1_tuweb"]
+[ext_resource type="Texture2D" uid="uid://dp7iqt1e1fn3u" path="res://Assets/Asset rebuild/Chest/ChestOpened.png" id="2_h4t7s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lkr2y"]
+radius = 55.5698
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iklye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tfre2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_h4t7s")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[node name="Treasure Chest" type="Area2D"]
+collision_layer = 536870912
+script = ExtResource("1_tuweb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_lkr2y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iklye")
+animation = &"Open"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

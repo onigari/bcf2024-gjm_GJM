@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhy3oukp85fpr"]
+
+[ext_resource type="Script" path="res://attacks/wind_slash.gd" id="1_cjqja"]
+[ext_resource type="Texture2D" uid="uid://n1k3wfv202gc" path="res://attacks/Wind_Slash.webp" id="2_h23vr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcfvx"]
+size = Vector2(33, 84)
+
+[sub_resource type="Animation" id="Animation_pir4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qhc2s"]
+resource_name = "destroy"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jjva4"]
+_data = {
+"RESET": SubResource("Animation_pir4g"),
+"destroy": SubResource("Animation_qhc2s")
+}
+
+[node name="Wind_Slash" type="RigidBody2D"]
+collision_layer = 1048576
+collision_mask = 2097152
+gravity_scale = 0.0
+script = ExtResource("1_cjqja")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.429688, 0.429688)
+texture = ExtResource("2_h23vr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, -2)
+shape = SubResource("RectangleShape2D_pcfvx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jjva4")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="destroy"]

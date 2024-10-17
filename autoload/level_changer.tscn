@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv2ss2j2400kp"]
+
+[ext_resource type="Script" path="res://autoload/level_changer.gd" id="1_emdon"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x4d4r"]
+radius = 171.012
+
+[node name="level_changer" type="Area2D"]
+collision_layer = 536870912
+script = ExtResource("1_emdon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x4d4r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
